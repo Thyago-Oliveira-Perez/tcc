@@ -75,6 +75,11 @@ def save_git_logs():
                     log = get_git_log(file_path)
                     log_file_path = create_log_folder_structure(file_path)
 
+                    if log is None:
+                        logging.info(
+                            f"Arquivo ignorado por não conter log de alterações: {log_file_path}")
+                        continue
+
                     # Salva o log no arquivo correspondente
                     with open(log_file_path, 'w', encoding='utf-8') as log_file:
                         log_file.write(log)
