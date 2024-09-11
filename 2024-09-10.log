@@ -1,0 +1,279 @@
+2024-09-10 21:26:57,396 - INFO - Iniciando processo de captura de logs do repositório.
+2024-09-10 21:26:57,398 - INFO - Pasta de logs criada: C:\Users\Thp\workspace\personal_projects\tcc\nome_da_pasta_do_projeto\..\logs_repo
+2024-09-10 21:26:57,398 - INFO - Processo finalizado.
+2024-09-10 21:27:18,938 - INFO - Iniciando processo de captura de logs do repositório.
+2024-09-10 21:27:18,939 - INFO - Pasta de logs existente apagada: C:\Users\Thp\workspace\personal_projects\tcc\nome_da_pasta_do_projeto\..\logs_repo
+2024-09-10 21:27:18,939 - INFO - Pasta de logs criada: C:\Users\Thp\workspace\personal_projects\tcc\nome_da_pasta_do_projeto\..\logs_repo
+2024-09-10 21:27:18,943 - INFO - Processo finalizado.
+2024-09-10 21:28:08,120 - INFO - Iniciando processo de captura de logs do repositório.
+2024-09-10 21:28:08,120 - INFO - Pasta de logs existente apagada: C:\Users\Thp\workspace\personal_projects\tcc\nome_da_pasta_do_projeto\..\logs_repo
+2024-09-10 21:28:08,120 - INFO - Pasta de logs criada: C:\Users\Thp\workspace\personal_projects\tcc\nome_da_pasta_do_projeto\..\logs_repo
+2024-09-10 21:28:08,121 - INFO - Processo finalizado.
+2024-09-10 21:28:24,860 - INFO - Iniciando processo de captura de logs do repositório.
+2024-09-10 21:28:24,861 - INFO - Pasta de logs existente apagada: C:\Users\Thp\workspace\personal_projects\tcc\nome_da_pasta_do_projeto\..\logs_repo
+2024-09-10 21:28:24,861 - INFO - Pasta de logs criada: C:\Users\Thp\workspace\personal_projects\tcc\nome_da_pasta_do_projeto\..\logs_repo
+2024-09-10 21:28:24,861 - INFO - Processo finalizado.
+2024-09-10 21:29:07,446 - INFO - Iniciando processo de captura de logs do repositório.
+2024-09-10 21:29:07,447 - INFO - Pasta de logs existente apagada: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo
+2024-09-10 21:29:07,447 - INFO - Pasta de logs criada: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo
+2024-09-10 21:29:07,447 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\.generated_files
+2024-09-10 21:29:08,005 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\.generated_files
+2024-09-10 21:29:08,006 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\.generated_files.log
+2024-09-10 21:29:08,006 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\.go-version
+2024-09-10 21:29:08,626 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\.go-version
+2024-09-10 21:29:08,627 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\.go-version.log
+2024-09-10 21:29:08,627 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\CHANGELOG.md
+2024-09-10 21:29:09,224 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\CHANGELOG.md
+2024-09-10 21:29:09,225 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\CHANGELOG.md.log
+2024-09-10 21:29:09,225 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\code-of-conduct.md
+2024-09-10 21:29:09,875 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\code-of-conduct.md
+2024-09-10 21:29:09,876 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\code-of-conduct.md.log
+2024-09-10 21:29:09,876 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\CONTRIBUTING.md
+2024-09-10 21:29:10,507 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\CONTRIBUTING.md
+2024-09-10 21:29:10,508 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\CONTRIBUTING.md.log
+2024-09-10 21:29:10,508 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\go.mod
+2024-09-10 21:29:11,165 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\go.mod
+2024-09-10 21:29:11,167 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\go.mod.log
+2024-09-10 21:29:11,167 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\go.sum
+2024-09-10 21:29:11,821 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\go.sum
+2024-09-10 21:29:11,823 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\go.sum.log
+2024-09-10 21:29:11,823 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\go.work
+2024-09-10 21:29:12,491 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\go.work
+2024-09-10 21:29:12,492 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\go.work.log
+2024-09-10 21:29:12,492 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\go.work.sum
+2024-09-10 21:29:13,139 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\go.work.sum
+2024-09-10 21:29:13,139 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\go.work.sum.log
+2024-09-10 21:29:13,140 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\LICENSE
+2024-09-10 21:29:13,757 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\LICENSE
+2024-09-10 21:29:13,758 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\LICENSE.log
+2024-09-10 21:29:13,758 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\Makefile
+2024-09-10 21:29:14,386 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\Makefile
+2024-09-10 21:29:14,387 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\Makefile.log
+2024-09-10 21:29:14,387 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\OWNERS
+2024-09-10 21:29:15,004 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\OWNERS
+2024-09-10 21:29:15,005 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\OWNERS.log
+2024-09-10 21:29:15,005 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\OWNERS_ALIASES
+2024-09-10 21:29:15,573 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\OWNERS_ALIASES
+2024-09-10 21:29:15,574 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\OWNERS_ALIASES.log
+2024-09-10 21:29:15,574 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\README.md
+2024-09-10 21:29:16,139 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\README.md
+2024-09-10 21:29:16,140 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\README.md.log
+2024-09-10 21:29:16,140 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\SECURITY_CONTACTS
+2024-09-10 21:29:16,747 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\SECURITY_CONTACTS
+2024-09-10 21:29:16,749 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\SECURITY_CONTACTS.log
+2024-09-10 21:29:16,749 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\SUPPORT.md
+2024-09-10 21:29:17,367 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\SUPPORT.md
+2024-09-10 21:29:17,369 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\SUPPORT.md.log
+2024-09-10 21:29:17,372 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\OWNERS
+2024-09-10 21:29:18,010 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\OWNERS
+2024-09-10 21:29:18,010 - INFO - Pasta de log criada: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api
+2024-09-10 21:29:18,011 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\OWNERS.log
+2024-09-10 21:29:18,011 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\aggregator_violation_exceptions.list
+2024-09-10 21:29:18,677 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\aggregator_violation_exceptions.list
+2024-09-10 21:29:18,678 - INFO - Pasta de log criada: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\api-rules
+2024-09-10 21:29:18,678 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\api-rules\aggregator_violation_exceptions.list.log
+2024-09-10 21:29:18,679 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\apiextensions_violation_exceptions.list
+2024-09-10 21:29:19,333 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\apiextensions_violation_exceptions.list
+2024-09-10 21:29:19,334 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\api-rules\apiextensions_violation_exceptions.list.log
+2024-09-10 21:29:19,334 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\codegen_violation_exceptions.list
+2024-09-10 21:29:19,998 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\codegen_violation_exceptions.list
+2024-09-10 21:29:19,999 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\api-rules\codegen_violation_exceptions.list.log
+2024-09-10 21:29:19,999 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\README.md
+2024-09-10 21:29:20,660 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\README.md
+2024-09-10 21:29:20,661 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\api-rules\README.md.log
+2024-09-10 21:29:20,661 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\sample_apiserver_violation_exceptions.list
+2024-09-10 21:29:21,293 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\sample_apiserver_violation_exceptions.list
+2024-09-10 21:29:21,294 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\api-rules\sample_apiserver_violation_exceptions.list.log
+2024-09-10 21:29:21,294 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\violation_exceptions.list
+2024-09-10 21:29:21,918 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\api-rules\violation_exceptions.list
+2024-09-10 21:29:21,919 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\api-rules\violation_exceptions.list.log
+2024-09-10 21:29:21,920 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\aggregated_v2.json
+2024-09-10 21:29:22,554 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\aggregated_v2.json
+2024-09-10 21:29:22,554 - INFO - Pasta de log criada: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery
+2024-09-10 21:29:22,555 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\aggregated_v2.json.log
+2024-09-10 21:29:22,555 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\api.json
+2024-09-10 21:29:23,212 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\api.json
+2024-09-10 21:29:23,213 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\api.json.log
+2024-09-10 21:29:23,213 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis.json
+2024-09-10 21:29:23,864 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis.json
+2024-09-10 21:29:23,865 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis.json.log
+2024-09-10 21:29:23,865 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__admissionregistration.k8s.io.json
+2024-09-10 21:29:24,516 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__admissionregistration.k8s.io.json
+2024-09-10 21:29:24,517 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__admissionregistration.k8s.io.json.log
+2024-09-10 21:29:24,517 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__admissionregistration.k8s.io__v1.json
+2024-09-10 21:29:25,155 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__admissionregistration.k8s.io__v1.json
+2024-09-10 21:29:25,156 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__admissionregistration.k8s.io__v1.json.log
+2024-09-10 21:29:25,156 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__admissionregistration.k8s.io__v1alpha1.json
+2024-09-10 21:29:25,797 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__admissionregistration.k8s.io__v1alpha1.json
+2024-09-10 21:29:25,799 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__admissionregistration.k8s.io__v1alpha1.json.log
+2024-09-10 21:29:25,799 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__admissionregistration.k8s.io__v1beta1.json
+2024-09-10 21:29:26,452 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__admissionregistration.k8s.io__v1beta1.json
+2024-09-10 21:29:26,452 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__admissionregistration.k8s.io__v1beta1.json.log
+2024-09-10 21:29:26,452 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apiextensions.k8s.io.json
+2024-09-10 21:29:27,130 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apiextensions.k8s.io.json
+2024-09-10 21:29:27,131 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__apiextensions.k8s.io.json.log
+2024-09-10 21:29:27,131 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apiextensions.k8s.io__v1.json
+2024-09-10 21:29:27,795 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apiextensions.k8s.io__v1.json
+2024-09-10 21:29:27,795 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__apiextensions.k8s.io__v1.json.log
+2024-09-10 21:29:27,795 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apiregistration.k8s.io.json
+2024-09-10 21:29:28,438 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apiregistration.k8s.io.json
+2024-09-10 21:29:28,438 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__apiregistration.k8s.io.json.log
+2024-09-10 21:29:28,438 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apiregistration.k8s.io__v1.json
+2024-09-10 21:29:29,077 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apiregistration.k8s.io__v1.json
+2024-09-10 21:29:29,078 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__apiregistration.k8s.io__v1.json.log
+2024-09-10 21:29:29,078 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apps.json
+2024-09-10 21:29:29,715 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apps.json
+2024-09-10 21:29:29,715 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__apps.json.log
+2024-09-10 21:29:29,715 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apps__v1.json
+2024-09-10 21:29:30,359 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__apps__v1.json
+2024-09-10 21:29:30,359 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__apps__v1.json.log
+2024-09-10 21:29:30,359 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authentication.k8s.io.json
+2024-09-10 21:29:30,994 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authentication.k8s.io.json
+2024-09-10 21:29:30,994 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__authentication.k8s.io.json.log
+2024-09-10 21:29:30,994 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authentication.k8s.io__v1.json
+2024-09-10 21:29:31,634 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authentication.k8s.io__v1.json
+2024-09-10 21:29:31,634 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__authentication.k8s.io__v1.json.log
+2024-09-10 21:29:31,634 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authentication.k8s.io__v1alpha1.json
+2024-09-10 21:29:32,271 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authentication.k8s.io__v1alpha1.json
+2024-09-10 21:29:32,272 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__authentication.k8s.io__v1alpha1.json.log
+2024-09-10 21:29:32,272 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authentication.k8s.io__v1beta1.json
+2024-09-10 21:29:32,915 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authentication.k8s.io__v1beta1.json
+2024-09-10 21:29:32,916 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__authentication.k8s.io__v1beta1.json.log
+2024-09-10 21:29:32,916 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authorization.k8s.io.json
+2024-09-10 21:29:33,561 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authorization.k8s.io.json
+2024-09-10 21:29:33,562 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__authorization.k8s.io.json.log
+2024-09-10 21:29:33,562 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authorization.k8s.io__v1.json
+2024-09-10 21:29:34,203 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__authorization.k8s.io__v1.json
+2024-09-10 21:29:34,203 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__authorization.k8s.io__v1.json.log
+2024-09-10 21:29:34,203 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__autoscaling.json
+2024-09-10 21:29:34,849 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__autoscaling.json
+2024-09-10 21:29:34,849 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__autoscaling.json.log
+2024-09-10 21:29:34,849 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__autoscaling__v1.json
+2024-09-10 21:29:35,490 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__autoscaling__v1.json
+2024-09-10 21:29:35,491 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__autoscaling__v1.json.log
+2024-09-10 21:29:35,491 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__autoscaling__v2.json
+2024-09-10 21:29:36,146 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__autoscaling__v2.json
+2024-09-10 21:29:36,147 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__autoscaling__v2.json.log
+2024-09-10 21:29:36,147 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__batch.json
+2024-09-10 21:29:36,781 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__batch.json
+2024-09-10 21:29:36,781 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__batch.json.log
+2024-09-10 21:29:36,781 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__batch__v1.json
+2024-09-10 21:29:37,434 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__batch__v1.json
+2024-09-10 21:29:37,434 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__batch__v1.json.log
+2024-09-10 21:29:37,435 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__certificates.k8s.io.json
+2024-09-10 21:29:38,075 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__certificates.k8s.io.json
+2024-09-10 21:29:38,075 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__certificates.k8s.io.json.log
+2024-09-10 21:29:38,075 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__certificates.k8s.io__v1.json
+2024-09-10 21:29:38,734 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__certificates.k8s.io__v1.json
+2024-09-10 21:29:38,734 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__certificates.k8s.io__v1.json.log
+2024-09-10 21:29:38,734 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__certificates.k8s.io__v1alpha1.json
+2024-09-10 21:29:39,382 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__certificates.k8s.io__v1alpha1.json
+2024-09-10 21:29:39,383 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__certificates.k8s.io__v1alpha1.json.log
+2024-09-10 21:29:39,383 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__coordination.k8s.io.json
+2024-09-10 21:29:40,053 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__coordination.k8s.io.json
+2024-09-10 21:29:40,054 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__coordination.k8s.io.json.log
+2024-09-10 21:29:40,054 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__coordination.k8s.io__v1.json
+2024-09-10 21:29:40,716 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__coordination.k8s.io__v1.json
+2024-09-10 21:29:40,717 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__coordination.k8s.io__v1.json.log
+2024-09-10 21:29:40,717 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__coordination.k8s.io__v1alpha1.json
+2024-09-10 21:29:41,367 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__coordination.k8s.io__v1alpha1.json
+2024-09-10 21:29:41,373 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__coordination.k8s.io__v1alpha1.json.log
+2024-09-10 21:29:41,373 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__discovery.k8s.io.json
+2024-09-10 21:29:42,034 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__discovery.k8s.io.json
+2024-09-10 21:29:42,034 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__discovery.k8s.io.json.log
+2024-09-10 21:29:42,034 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__discovery.k8s.io__v1.json
+2024-09-10 21:29:42,677 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__discovery.k8s.io__v1.json
+2024-09-10 21:29:42,678 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__discovery.k8s.io__v1.json.log
+2024-09-10 21:29:42,678 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__events.k8s.io.json
+2024-09-10 21:29:43,332 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__events.k8s.io.json
+2024-09-10 21:29:43,333 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__events.k8s.io.json.log
+2024-09-10 21:29:43,333 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__events.k8s.io__v1.json
+2024-09-10 21:29:43,973 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__events.k8s.io__v1.json
+2024-09-10 21:29:43,978 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__events.k8s.io__v1.json.log
+2024-09-10 21:29:43,978 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__flowcontrol.apiserver.k8s.io.json
+2024-09-10 21:29:44,630 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__flowcontrol.apiserver.k8s.io.json
+2024-09-10 21:29:44,631 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__flowcontrol.apiserver.k8s.io.json.log
+2024-09-10 21:29:44,631 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__flowcontrol.apiserver.k8s.io__v1.json
+2024-09-10 21:29:45,263 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__flowcontrol.apiserver.k8s.io__v1.json
+2024-09-10 21:29:45,264 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__flowcontrol.apiserver.k8s.io__v1.json.log
+2024-09-10 21:29:45,264 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__flowcontrol.apiserver.k8s.io__v1beta3.json
+2024-09-10 21:29:45,892 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__flowcontrol.apiserver.k8s.io__v1beta3.json
+2024-09-10 21:29:45,893 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__flowcontrol.apiserver.k8s.io__v1beta3.json.log
+2024-09-10 21:29:45,893 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__internal.apiserver.k8s.io.json
+2024-09-10 21:29:46,541 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__internal.apiserver.k8s.io.json
+2024-09-10 21:29:46,542 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__internal.apiserver.k8s.io.json.log
+2024-09-10 21:29:46,542 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__internal.apiserver.k8s.io__v1alpha1.json
+2024-09-10 21:29:47,179 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__internal.apiserver.k8s.io__v1alpha1.json
+2024-09-10 21:29:47,180 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__internal.apiserver.k8s.io__v1alpha1.json.log
+2024-09-10 21:29:47,180 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__networking.k8s.io.json
+2024-09-10 21:29:47,823 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__networking.k8s.io.json
+2024-09-10 21:29:47,824 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__networking.k8s.io.json.log
+2024-09-10 21:29:47,824 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__networking.k8s.io__v1.json
+2024-09-10 21:29:48,462 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__networking.k8s.io__v1.json
+2024-09-10 21:29:48,463 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__networking.k8s.io__v1.json.log
+2024-09-10 21:29:48,463 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__networking.k8s.io__v1beta1.json
+2024-09-10 21:29:49,087 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__networking.k8s.io__v1beta1.json
+2024-09-10 21:29:49,122 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__networking.k8s.io__v1beta1.json.log
+2024-09-10 21:29:49,122 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__node.k8s.io.json
+2024-09-10 21:29:49,760 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__node.k8s.io.json
+2024-09-10 21:29:49,761 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__node.k8s.io.json.log
+2024-09-10 21:29:49,761 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__node.k8s.io__v1.json
+2024-09-10 21:29:50,417 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__node.k8s.io__v1.json
+2024-09-10 21:29:50,417 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__node.k8s.io__v1.json.log
+2024-09-10 21:29:50,417 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__policy.json
+2024-09-10 21:29:51,062 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__policy.json
+2024-09-10 21:29:51,063 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__policy.json.log
+2024-09-10 21:29:51,063 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__policy__v1.json
+2024-09-10 21:29:51,714 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__policy__v1.json
+2024-09-10 21:29:51,715 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__policy__v1.json.log
+2024-09-10 21:29:51,715 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__rbac.authorization.k8s.io.json
+2024-09-10 21:29:52,375 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__rbac.authorization.k8s.io.json
+2024-09-10 21:29:52,376 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__rbac.authorization.k8s.io.json.log
+2024-09-10 21:29:52,376 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__rbac.authorization.k8s.io__v1.json
+2024-09-10 21:29:53,002 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__rbac.authorization.k8s.io__v1.json
+2024-09-10 21:29:53,002 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__rbac.authorization.k8s.io__v1.json.log
+2024-09-10 21:29:53,002 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__resource.k8s.io.json
+2024-09-10 21:29:53,635 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__resource.k8s.io.json
+2024-09-10 21:29:53,635 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__resource.k8s.io.json.log
+2024-09-10 21:29:53,635 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__resource.k8s.io__v1alpha3.json
+2024-09-10 21:29:54,259 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__resource.k8s.io__v1alpha3.json
+2024-09-10 21:29:54,260 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__resource.k8s.io__v1alpha3.json.log
+2024-09-10 21:29:54,260 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__scheduling.k8s.io.json
+2024-09-10 21:29:54,900 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__scheduling.k8s.io.json
+2024-09-10 21:29:54,901 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__scheduling.k8s.io.json.log
+2024-09-10 21:29:54,901 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__scheduling.k8s.io__v1.json
+2024-09-10 21:29:55,526 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__scheduling.k8s.io__v1.json
+2024-09-10 21:29:55,527 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__scheduling.k8s.io__v1.json.log
+2024-09-10 21:29:55,527 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storage.k8s.io.json
+2024-09-10 21:29:56,158 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storage.k8s.io.json
+2024-09-10 21:29:56,158 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__storage.k8s.io.json.log
+2024-09-10 21:29:56,158 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storage.k8s.io__v1.json
+2024-09-10 21:29:56,790 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storage.k8s.io__v1.json
+2024-09-10 21:29:56,791 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__storage.k8s.io__v1.json.log
+2024-09-10 21:29:56,791 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storage.k8s.io__v1alpha1.json
+2024-09-10 21:29:57,416 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storage.k8s.io__v1alpha1.json
+2024-09-10 21:29:57,417 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__storage.k8s.io__v1alpha1.json.log
+2024-09-10 21:29:57,417 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storage.k8s.io__v1beta1.json
+2024-09-10 21:29:58,057 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storage.k8s.io__v1beta1.json
+2024-09-10 21:29:58,057 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__storage.k8s.io__v1beta1.json.log
+2024-09-10 21:29:58,059 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storagemigration.k8s.io.json
+2024-09-10 21:29:58,697 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storagemigration.k8s.io.json
+2024-09-10 21:29:58,697 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__storagemigration.k8s.io.json.log
+2024-09-10 21:29:58,697 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storagemigration.k8s.io__v1alpha1.json
+2024-09-10 21:29:59,345 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\apis__storagemigration.k8s.io__v1alpha1.json
+2024-09-10 21:29:59,346 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\apis__storagemigration.k8s.io__v1alpha1.json.log
+2024-09-10 21:29:59,346 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\api__v1.json
+2024-09-10 21:29:59,974 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\discovery\api__v1.json
+2024-09-10 21:29:59,975 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\discovery\api__v1.json.log
+2024-09-10 21:29:59,975 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\openapi-spec\README.md
+2024-09-10 21:30:00,595 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\openapi-spec\README.md
+2024-09-10 21:30:00,596 - INFO - Pasta de log criada: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\openapi-spec
+2024-09-10 21:30:00,596 - INFO - Log salvo em: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\..\logs_repo\api\openapi-spec\README.md.log
+2024-09-10 21:30:00,597 - INFO - Processando arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\openapi-spec\swagger.json
+2024-09-10 21:30:01,222 - INFO - Log capturado com sucesso para o arquivo: C:\Users\Thp\workspace\personal_projects\tcc\kubernetes\api\openapi-spec\swagger.json
+2024-09-10 21:30:01,223 - ERROR - Erro ao salvar os logs do repositório: write() argument must be str, not None
+Traceback (most recent call last):
+  File "C:\Users\Thp\workspace\personal_projects\tcc\main.py", line 80, in save_git_logs
+    log_file.write(log)
+TypeError: write() argument must be str, not None
+2024-09-10 21:30:01,223 - INFO - Processo finalizado.

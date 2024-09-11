@@ -1,82 +1,89 @@
-import subprocess
 import os
-import sys
+import subprocess
+import shutil
+import logging
+from datetime import datetime
+
+# Configuração do arquivo de log com a data atual
+log_filename = datetime.now().strftime('%Y-%m-%d') + '.log'
+logging.basicConfig(filename=log_filename, level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Caminho do repositório Git (subpasta dentro da pasta onde está o script main.py)
+# Substitua 'nome_da_pasta_do_projeto' pelo nome correto
+repo_path = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), 'kubernetes')
+
+# Caminho para a pasta externa onde os logs serão salvos
+logs_folder = os.path.join(repo_path, '..', 'kubernetes_logs')
+
+# Função para obter o log de um arquivo
 
 
-def save_git_history_for_directory(directory):
-    # Verifica se o diretório é um repositório git
-    if not os.path.isdir(directory):
-        print(f"Diretório '{directory}' não encontrado.")
-        return
+def get_git_log(file_path):
+    try:
+        result = subprocess.run(['git', 'log', '--', file_path], cwd=repo_path,
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if result.returncode == 0:
+            logging.info(
+                f"Log capturado com sucesso para o arquivo: {file_path}")
+            return result.stdout
+        else:
+            logging.error(
+                f"Erro ao obter o log de {file_path}: {result.stderr}")
+            return f"Erro ao obter o log de {file_path}: {result.stderr}"
+    except Exception as e:
+        logging.exception(
+            f"Erro ao executar o comando git log para o arquivo {file_path}: {e}")
+        return f"Erro ao executar o comando git log para o arquivo {file_path}: {e}"
 
-    if not os.path.isdir(os.path.join(directory, ".git")):
-        print(f"Diretório '{directory}' não é um repositório git.")
-        return
-
-    # Percorre todos os arquivos no diretório
-    for root, _, files in os.walk(directory):
-        for file in files:
-            file_path = os.path.join(root, file)
-            log_file = f"./kubernetes_logs/{file_path}.log"
-
-            print(root)
-
-            if "\\.git\\" in root:
-                continue
-
-            try:
-                # git_log_command = f"cd {directory} ; git log --pretty=format:\"%h - %an, %ad : %s\" -- {file_path}"
-
-                # git_log = subprocess.check_output(
-                #     git_log_command, cwd=directory, text=True)
-                # print(f"{file_path} log lenght: ", len(git_log))
-                # # Salva o histórico em um arquivo .log
-                # with open(log_file, "w") as log:
-                #     log.write(git_log)
-
-                print(f"Histórico de alterações salvo em '{log_file}'.")
-
-            except subprocess.CalledProcessError as e:
-                print(
-                    f"Erro ao executar o comando git para '{file_path}': {e}")
+# Função para criar a estrutura de pastas para os logs
 
 
-def tryin(directory):
-    # Percorre todos os arquivos no diretório
-    for root, _, files in os.walk(directory):
-        for file in files:
-            file_path = os.path.join(root, file)
-            log_file = f"./kubernetes_logs/{file_path}.log"
+def create_log_folder_structure(file_path):
+    # Caminho relativo ao repositório
+    relative_path = os.path.relpath(file_path, repo_path)
+    log_file_path = os.path.join(
+        logs_folder, relative_path) + '.log'  # Nome do arquivo .log
+    log_folder = os.path.dirname(log_file_path)  # Pasta onde o log será salvo
 
-            if "\\.git\\" in root:
-                continue
+    if not os.path.exists(log_folder):
+        os.makedirs(log_folder)
+        logging.info(f"Pasta de log criada: {log_folder}")
 
-            try:
-                # command = f"git log --pretty=format:\"%h - %an, %ad : %s\" -- ./{file}"
-                command = f"git log --pretty=format:\"%h - %an, %ad : %s\" -- ./{file}"
-                print(f"root folder: {root}\nfile: {file}\ncommand: {command}")
-                # Run the command and capture the output
-                output = subprocess.check_output(
-                    command, shell=True, text=True)
+    return log_file_path
 
-                # Print the command output
-                print("Command output:")
-                print(output)
-                # git_log_command = f"cd {directory} ; git log --pretty=format:\"%h - %an, %ad : %s\" -- {file}"
+# Função principal para percorrer os arquivos do repositório
 
-                # git_log = subprocess.check_output(
-                #     git_log_command, cwd=directory, text=True)
-                # print(f"{file_path} log lenght: ", len(git_log))
-                # # Salva o histórico em um arquivo .log
-                # with open(log_file, "w") as log:
-                #     log.write(git_log)
 
-                # print(f"Histórico de alterações salvo em '{log_file}'.")
+def save_git_logs():
+    try:
+        # Verifica se a pasta de logs já existe
+        if os.path.exists(logs_folder):
+            # Apaga a pasta de logs anterior se já existir
+            shutil.rmtree(logs_folder)
+            logging.info(f"Pasta de logs existente apagada: {logs_folder}")
+        os.makedirs(logs_folder)
+        logging.info(f"Pasta de logs criada: {logs_folder}")
 
-            except subprocess.CalledProcessError as e:
-                print(
-                    f"Erro ao executar o comando git para '{file_path}': {e}")
+        # Percorre todos os arquivos do repositório
+        for root, _, files in os.walk(repo_path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                if '.git' not in file_path and file != 'main.py':  # Ignora a pasta .git e o próprio script
+                    logging.info(f"Processando arquivo: {file_path}")
+                    log = get_git_log(file_path)
+                    log_file_path = create_log_folder_structure(file_path)
+
+                    # Salva o log no arquivo correspondente
+                    with open(log_file_path, 'w', encoding='utf-8') as log_file:
+                        log_file.write(log)
+                    logging.info(f"Log salvo em: {log_file_path}")
+    except Exception as e:
+        logging.exception(f"Erro ao salvar os logs do repositório: {e}")
 
 
 if __name__ == "__main__":
-    tryin("./kubernetes")
+    logging.info("Iniciando processo de captura de logs do repositório.")
+    save_git_logs()
+    logging.info("Processo finalizado.")
