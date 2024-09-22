@@ -119,12 +119,12 @@ Date:   Thu Jan 11 10:24:54 2024 +0100
     Signed-off-by: cpanato <ctadeu@gmail.com>
 
 commit 1c1347a3e71e904eb768f5d2c99bacf1400d0a94
-Author: Marko MudriniÄ‡ <mudrinic.mare@gmail.com>
+Author: Marko Mudrinić <mudrinic.mare@gmail.com>
 Date:   Wed Dec 6 10:33:34 2023 +0100
 
     [go] Bump images, dependencies and versions to go 1.21.5
     
-    Signed-off-by: Marko MudriniÄ‡ <mudrinic.mare@gmail.com>
+    Signed-off-by: Marko Mudrinić <mudrinic.mare@gmail.com>
 
 commit 88e124ecaa4daacfde355ed61a4490aa849fc35c
 Author: cpanato <ctadeu@gmail.com>
@@ -175,12 +175,12 @@ Date:   Mon Aug 7 13:25:59 2023 -0600
     Signed-off-by: Jeremy Rickard <jeremyrrickard@gmail.com>
 
 commit 69c4bc29f5539f5f61dceb035d568bc37708afaf
-Author: Marko MudriniÄ‡ <mudrinic.mare@gmail.com>
+Author: Marko Mudrinić <mudrinic.mare@gmail.com>
 Date:   Fri Jul 14 12:04:13 2023 +0200
 
     [go] Bump images, versions and deps to use Go 1.20.6
     
-    Signed-off-by: Marko MudriniÄ‡ <mudrinic.mare@gmail.com>
+    Signed-off-by: Marko Mudrinić <mudrinic.mare@gmail.com>
 
 commit d9e12db547e089925cde03c472c33dceaee6e164
 Author: Jeremy Rickard <jeremyrrickard@gmail.com>
@@ -191,20 +191,20 @@ Date:   Tue Jun 6 07:36:05 2023 -0600
     Signed-off-by: Jeremy Rickard <jeremyrrickard@gmail.com>
 
 commit 19885264f3de797da3d4f7fa46104af77eaeb5ec
-Author: Marko MudriniÄ‡ <mudrinic.mare@gmail.com>
+Author: Marko Mudrinić <mudrinic.mare@gmail.com>
 Date:   Wed May 3 12:22:23 2023 +0200
 
     [go] Bump images, dependencies and versions to go 1.20.4
     
-    Signed-off-by: Marko MudriniÄ‡ <mudrinic.mare@gmail.com>
+    Signed-off-by: Marko Mudrinić <mudrinic.mare@gmail.com>
 
 commit 2a69edb43de2f33dd967bcf3b3a013d239a15c51
-Author: Marko MudriniÄ‡ <mudrinic.mare@gmail.com>
+Author: Marko Mudrinić <mudrinic.mare@gmail.com>
 Date:   Wed Apr 5 23:46:34 2023 +0200
 
     [go] Bump images, dependencies and versions to go 1.20.3
     
-    Signed-off-by: Marko MudriniÄ‡ <mudrinic.mare@gmail.com>
+    Signed-off-by: Marko Mudrinić <mudrinic.mare@gmail.com>
 
 commit 99c80ac1193f4f1dea3e8bd1e647892bd950e2ad
 Author: cpanato <ctadeu@gmail.com>
