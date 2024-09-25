@@ -60,23 +60,30 @@ def connect_db():
 def create_tables(conn):
     cursor = conn.cursor()
     log_info("Validando tabelas no banco de dados...")
+    # Cria tabela para armazenar commits
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS commits (
+            commit_hash TEXT PRIMARY KEY,
+            author TEXT,
+            date TEXT,
+            message TEXT
+        )
+    ''')
     # Cria tabela para armazenar arquivos
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS files (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            file_path TEXT UNIQUE
+            path TEXT
         )
     ''')
-    # Cria tabela para armazenar logs
+    # Cria tabela para armazenar a relacao entre commits e arquivos
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS logs (
+        CREATE TABLE IF NOT EXISTS commits_X_files (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            file_id INTEGER,
             commit_hash TEXT,
-            author TEXT,
-            date TEXT,
-            message TEXT,
-            FOREIGN KEY (file_id) REFERENCES files(id)
+            file_id INTEGER,
+            FOREIGN KEY (commit_hash) REFERENCES commits(commit_hash),
+            FOREIGN KEY (file_id) REFERENCES commits(id)
         )
     ''')
     conn.commit()
@@ -97,36 +104,68 @@ def drop_tables(conn):
 # Função para salvar um arquivo no banco
 
 
-def save_file(conn, file_path):
+def insert_file(conn, path):
+    log_info(f"Salvando arquivo no banco: {path}")
     cursor = conn.cursor()
-    cursor.execute(
-        'INSERT OR IGNORE INTO files (file_path) VALUES (?)', (file_path,))
+    cursor.execute(f"INSERT INTO files (path) VALUES ('{path}')")
     conn.commit()
     return cursor.lastrowid
 
 # Função para salvar um log no banco
 
 
-def save_log(conn, file_id, commit_hash, author, date, message):
+def insert_commit(conn, commit_hash, author, date, message):
+    log_info(f"Salvando commit no banco: {commit_hash}")
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO logs (file_id, commit_hash, author, date, message)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (file_id, commit_hash, author, date, message))
+        INSERT INTO commits (commit_hash, author, date, message)
+        VALUES (?, ?, ?, ?)
+    ''', (commit_hash, author, date, message))
     conn.commit()
-    log_info(f"Log salvo no banco de dados: {commit_hash}")
-
-# Função para processar e salvar os logs em SQLite
+    log_info(f"Commit salvo no banco de dados: {commit_hash}")
 
 
-# Função para processar e salvar logs no banco de dados
-def process_and_save_logs_in_db(file_path, log):
+def insert_relation(conn, commit_hash, file_id):
+    log_info(f"Salvando relacao no banco de dados: {commit_hash} e {file_id}")
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT INTO commits_X_files (commit_hash, file_id)
+        VALUES (?, ?)
+    ''', (commit_hash, file_id))
+    conn.commit()
+    log_info(f"Relacao salva no banco de dados: {commit_hash} e {file_id}")
+
+
+def exist_commit_by_commit_hash(conn, commit_hash):
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT commit_hash FROM commits WHERE commit_hash = '{commit_hash}'")
+    
+    result = cursor.fetchone()  # Recupera o primeiro resultado
+    
+    if result:
+        return result[0]
+    else:
+        log_info("Commit não encontrado")
+        return None
+
+
+def exist_file_by_path(conn, path):
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT id FROM files WHERE path = '{path}'")
+    
+    result = cursor.fetchone()  # Recupera o primeiro resultado
+    
+    if result:
+        return result[0]
+    else:
+        log_info("File não encontrado")
+        return None
+
+# Função para processar e salvar commits no banco de dados
+def process_and_save_logcommitn_db(file_path, log):
     conn = connect_db()
 
     try:
-        # Salva o arquivo no banco
-        file_id = save_file(conn, file_path)
-
         # Usar uma regex para identificar corretamente as linhas que começam com commit seguido de um hash válido
         commit_regex = re.compile(r'(commit [0-9a-f]{40})')
 
@@ -158,8 +197,19 @@ def process_and_save_logs_in_db(file_path, log):
             date = lines[2].replace('Date:', '').strip()
             message = "\n".join([line.strip() for line in lines[4:]]).strip()
 
-            # Salva o log no banco
-            save_log(conn, file_id, commit_hash, author, date, message)
+            commit = exist_commit_by_commit_hash(conn, commit_hash)
+
+            if commit is None:
+               insert_commit(conn, commit_hash, author, date, message)
+            
+            file = exist_file_by_path(conn, file_path)
+
+            if file is None:
+                file_id = insert_file(conn, file_path)
+                insert_relation(conn, commit_hash, file_id)
+            else:
+                insert_relation(conn, commit_hash, file)
+
 
     except Exception as e:
         log_exception(f"Erro ao salvar logs no banco de dados: {e}")
@@ -196,7 +246,7 @@ def get_git_log(file_path):
 # Função para salvar o log no arquivo correspondente com tratamento de encoding
 
 
-def save_log_file(log_file_path, log):
+def save_logcommitle(log_file_path, log):
     try:
         with open(log_file_path, 'w', encoding='utf-8', errors='replace') as log_file:
             log_file.write(log)
@@ -225,14 +275,6 @@ def create_log_folder_structure(file_path):
 
 def run():
     try:
-        # Verifica se a pasta de logs já existe
-        if os.path.exists(logs_folder):
-            # Apaga a pasta de logs anterior se já existir
-            shutil.rmtree(logs_folder)
-            log_info(f"Pasta de logs existente apagada: {logs_folder}")
-        os.makedirs(logs_folder)
-        log_info(f"Pasta de logs criada: {logs_folder}")
-
         # Percorre todos os arquivos do repositório
         for root, _, files in os.walk(repo_path):
             for file in files:
@@ -240,17 +282,13 @@ def run():
                 if '.git' not in file_path and file != 'main.py':  # Ignora a pasta .git e o próprio script
                     log_info(f"Processando arquivo: {file_path}")
                     log = get_git_log(file_path)
-                    log_file_path = create_log_folder_structure(file_path)
 
                     if log is None:
-                        log_info(
-                            f"Arquivo ignorado por não conter log de alterações: {log_file_path}")
+                        log_info(f"Este arquivo não contem logs de commit: {file_path}")
                         continue
 
-                    save_log_file(log_file_path, log)
-
                     # Processa e salva os logs no banco de dados
-                    process_and_save_logs_in_db(file_path, log)
+                    process_and_save_logcommitn_db(file_path, log)
     except Exception as e:
         log_exception(f"Erro ao salvar os logs do repositório: {e}")
 
