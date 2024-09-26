@@ -7,7 +7,7 @@ import sqlite3
 import re
 
 # Configuração do arquivo de log com a data atual
-log_filename = datetime.now().strftime('%Y-%m-%d') + '.log'
+log_filename = "logs/" + datetime.now().strftime('%Y-%m-%d') + '.log'
 logging.basicConfig(filename=log_filename, level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -15,9 +15,6 @@ logging.basicConfig(filename=log_filename, level=logging.INFO,
 # Substitua 'nome_da_pasta_do_projeto' pelo nome correto
 repo_path = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), 'kubernetes')
-
-# Caminho para a pasta externa onde os logs serão salvos
-logs_folder = os.path.join(repo_path, '..', 'kubernetes_logs')
 
 # Funções para registrar o log
 
@@ -162,7 +159,7 @@ def exist_file_by_path(conn, path):
         return None
 
 # Função para processar e salvar commits no banco de dados
-def process_and_save_logcommitn_db(file_path, log):
+def process_and_save_commit_in_db(file_path, log):
     conn = connect_db()
 
     try:
@@ -254,21 +251,6 @@ def save_logcommitle(log_file_path, log):
     except Exception as e:
         log_exception(f"Erro ao salvar o log no arquivo {log_file_path}: {e}")
 
-# Função para criar a estrutura de pastas para os logs
-
-
-def create_log_folder_structure(file_path):
-    # Caminho relativo ao repositório
-    relative_path = os.path.relpath(file_path, repo_path)
-    log_file_path = os.path.join(
-        logs_folder, relative_path) + '.log'  # Nome do arquivo .log
-    log_folder = os.path.dirname(log_file_path)  # Pasta onde o log será salvo
-
-    if not os.path.exists(log_folder):
-        os.makedirs(log_folder)
-        log_info(f"Pasta de log criada: {log_folder}")
-
-    return log_file_path
 
 # Função principal para percorrer os arquivos do repositório
 
@@ -288,7 +270,7 @@ def run():
                         continue
 
                     # Processa e salva os logs no banco de dados
-                    process_and_save_logcommitn_db(file_path, log)
+                    process_and_save_commit_in_db(file_path, log)
     except Exception as e:
         log_exception(f"Erro ao salvar os logs do repositório: {e}")
 
