@@ -131,22 +131,26 @@ def save_files_in_batches(conn, files):
         cursor = conn.cursor()
         cursor.executemany('''
             INSERT OR IGNORE INTO files (path) VALUES (?)
-        ''', [(file,) for file in files])
+        ''', [(file.path,) for file in files])
         conn.commit()
     except Exception as e:
         log_exception(f"Erro ao inserir arquivos em lote: {e}")
         conn.rollback()
 
+# Função para salvar as relações entre commits e arquivos
 
-def insert_relation(conn, commit_hash, file_id):
-    log_info(f"Salvando relacao no banco de dados: {commit_hash} e {file_id}")
-    cursor = conn.cursor()
-    cursor.execute('''
-        INSERT INTO commits_X_files (commit_hash, file_id)
-        VALUES (?, ?)
-    ''', (commit_hash, file_id))
-    conn.commit()
-    log_info(f"Relacao salva no banco de dados: {commit_hash} e {file_id}")
+
+def save_files_X_commits_relation_in_batches(conn, relations):
+    try:
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO commits_X_files (commit_hash, file_path)
+            VALUES (?, ?)
+        ''', [(relation.path, relation.commits,) for relation in relations])
+        conn.commit()
+    except Exception as e:
+        log_exception(f"Erro ao inserir realações em lote: {e}")
+        conn.rollback()
 
 # Função para extrair o commits do log retornado pelo comando "git log"
 
@@ -154,7 +158,7 @@ def insert_relation(conn, commit_hash, file_id):
 def extract_commits_from_log(file_path, log):
     try:
         # Usar uma regex para identificar corretamente as linhas que começam com commit seguido de um hash válido
-        commit_regex = re.compile(r'(commit [0-9a-f]{40})')
+        commit_regex = re.compile(r'^commit [0-9a-f]{40}', re.MULTILINE)
 
         # Encontrar todos os commits no log
         matches = list(commit_regex.finditer(log))
@@ -171,10 +175,12 @@ def extract_commits_from_log(file_path, log):
 # Fução para extrair objeto commit do log
 
 
-def extract_commit_from_log(i, matches, log):
+def extract_commit(i, matches, log):
     try:
-        # Captura o início e o fim de cada commit no log
+        # Captura o início de cada commit
         start_pos = matches[i].start()
+
+        # Se houver mais commits, capture o final até o próximo commit; caso contrário, vá até o final do log
         end_pos = matches[i+1].start() if i+1 < len(matches) else len(log)
 
         # Extrai o texto do commit
@@ -207,11 +213,10 @@ def extract_commit_from_log(i, matches, log):
 # Função para processar e salvar commits no banco de dados
 
 
-def process_and_save_commit_in_db(file_path, log):
-    conn = connect_db()
-
+def process_and_save_files_X_commit_relation_in_db(file_path, log):
     try:
-        matches = extract_commits_from_log(log)
+        conn = connect_db()
+        matches = extract_commits_from_log(file_path, log)
 
         if not matches:
             conn.close()
@@ -219,7 +224,7 @@ def process_and_save_commit_in_db(file_path, log):
 
         # Percorrer os commits identificados
         for i in range(len(matches)):
-            result = extract_commit_from_log(i, matches, log)
+            result = extract_commit(i, matches, log)
 
             commit_hash = result['commit_hash']
 
@@ -231,6 +236,29 @@ def process_and_save_commit_in_db(file_path, log):
 
     finally:
         conn.close()
+
+# Função para a relação entre arquivos e commits
+
+
+def get_file_X_commit_relation(file_path, log):
+    matches = extract_commits_from_log(file_path, log)
+    if not matches:
+        return None
+
+    commits = []
+
+    # Percorrer os commits identificados
+    for i in range(len(matches)):
+        result = extract_commit(i, matches, log)
+
+        commit_hash = result['commit_hash']
+
+        commits.append(commit_hash)
+
+    return {
+        'path': file_path,
+        'commits': commits
+    }
 
 # Função para capturar logs sem confundir a palavra "commit" em comentários
 
@@ -257,6 +285,8 @@ def get_git_log(file_path):
             f"Erro ao executar o comando git log para o arquivo {file_path}: {e}")
         return f"Erro ao executar o comando git log para o arquivo {file_path}: {e}"
 
+# Função para salvar todos os commits do repostorio
+
 
 def save_all_commits(path):
     try:
@@ -268,24 +298,14 @@ def save_all_commits(path):
             log_info(
                 f"Este repositório não contem logs de commit: {path}")
 
-        # Usar uma regex para identificar corretamente as linhas que começam com commit seguido de um hash válido
-        commit_regex = re.compile(r'(commit [0-9a-f]{40})')
-
         # Encontrar todos os commits no log
-        matches = list(commit_regex.finditer(log))
-
-        if not matches:
-            log_info(f"Nenhum commit encontrado no repositorio {repo_path}")
-            return
+        matches = extract_commits_from_log(path, log)
 
         commits = []
 
         # Percorrer os commits identificados
         for i in range(len(matches)):
-            result = extract_commit_from_log(i, matches, log)
-
-            if result is None:
-                continue
+            result = extract_commit(i, matches, log)
 
             commit_hash = result['commit_hash']
             author = result['author']
@@ -304,30 +324,49 @@ def save_all_commits(path):
     except Exception as e:
         log_exception(f"Error: {e}")
 
+# Função para salvar a relação entre arquivo e commits
+
+
+def save_files_commits_relation():
+    file_relations = []
+    # Percorre todos os arquivos do repositório
+    for root, _, files in os.walk(repo_path):
+        for file in files:
+            file_path = os.path.join(root, file)
+            if '.git' not in file_path and file != 'main.py':  # Ignora a pasta .git e o próprio script
+                log_info(f"Processando arquivo: {file_path}")
+                log = get_git_log(file_path)
+
+                if log is None:
+                    log_info(
+                        f"Este arquivo não contem logs de commit: {file_path}")
+                    continue
+
+                file_relation = get_file_X_commit_relation(file_path, log)
+                file_relations.append(file_relation)
+
+    chunks = [file_relations[i:i + 1000]
+              for i in range(0, len(file_relations), 1000)]
+
+    conn = connect_db()
+    for chunk in chunks:
+        save_files_in_batches(conn, chunk)
+
+    for chunk in chunks:
+        relations = [
+            relation for file in chunk for relation in file['commits']]
+        save_files_X_commits_relation_in_batches(conn, chunk)
+    conn.close()
+
 # Função principal para percorrer os arquivos do repositório
 
 
 def run():
     try:
-        save_all_commits(repo_path)
-        # Percorre todos os arquivos do repositório
-        # for root, _, files in os.walk(repo_path):
-
-        #     for file in files:
-        #         file_path = os.path.join(root, file)
-        #         if '.git' not in file_path and file != 'main.py':  # Ignora a pasta .git e o próprio script
-        #             log_info(f"Processando arquivo: {file_path}")
-        #             log = get_git_log(file_path)
-
-        #             if log is None:
-        #                 log_info(
-        #                     f"Este arquivo não contem logs de commit: {file_path}")
-        #                 continue
-
-        #             # Processa e salva os logs no banco de dados
-        #             process_and_save_commit_in_db(file_path, log)
+        # save_all_commits(repo_path)
+        save_files_commits_relation()
     except Exception as e:
-        log_exception(f"Erro ao salvar os logs do repositório: {e}")
+        log_exception(f"Erro: {e}")
 
 
 if __name__ == "__main__":
