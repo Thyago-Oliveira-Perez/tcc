@@ -68,8 +68,7 @@ def create_tables(conn):
     # Cria tabela para armazenar arquivos
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS files (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            path TEXT
+            path TEXT PRIMARY KEY
         )
     ''')
     # Cria tabela para armazenar a relacao entre commits e arquivos
@@ -77,9 +76,9 @@ def create_tables(conn):
         CREATE TABLE IF NOT EXISTS commits_X_files (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             commit_hash TEXT,
-            file_id INTEGER,
+            file_path TEXT,
             FOREIGN KEY (commit_hash) REFERENCES commits(commit_hash),
-            FOREIGN KEY (file_id) REFERENCES commits(id)
+            FOREIGN KEY (file_path) REFERENCES files(path)
         )
     ''')
     conn.commit()
@@ -127,29 +126,32 @@ def save_commits_in_batches(conn, commits):
 
 
 def save_files_in_batches(conn, files):
+    log_info(f"Salvando files em lotes de {len(files)}")
     try:
         cursor = conn.cursor()
         cursor.executemany('''
             INSERT OR IGNORE INTO files (path) VALUES (?)
-        ''', [(file.path,) for file in files])
+        ''', [(file["path"],) for file in files])
         conn.commit()
     except Exception as e:
         log_exception(f"Erro ao inserir arquivos em lote: {e}")
         conn.rollback()
 
+
 # Função para salvar as relações entre commits e arquivos
 
 
 def save_files_X_commits_relation_in_batches(conn, relations):
+    log_info(f"Salvando relação em lotes de {len(relations)}")
     try:
         cursor = conn.cursor()
-        cursor.execute('''
-            INSERT INTO commits_X_files (commit_hash, file_path)
+        cursor.executemany('''
+            INSERT OR IGNORE INTO commits_X_files (commit_hash, file_path)
             VALUES (?, ?)
-        ''', [(relation.path, relation.commits,) for relation in relations])
+        ''', relations)
         conn.commit()
     except Exception as e:
-        log_exception(f"Erro ao inserir realações em lote: {e}")
+        log_exception(f"Erro ao inserir relações em lote: {e}")
         conn.rollback()
 
 # Função para extrair o commits do log retornado pelo comando "git log"
@@ -210,32 +212,6 @@ def extract_commit(i, matches, log):
     except Exception as e:
         log_exception(f"Erro ao salvar logs no banco de dados: {e}")
 
-# Função para processar e salvar commits no banco de dados
-
-
-def process_and_save_files_X_commit_relation_in_db(file_path, log):
-    try:
-        conn = connect_db()
-        matches = extract_commits_from_log(file_path, log)
-
-        if not matches:
-            conn.close()
-            return
-
-        # Percorrer os commits identificados
-        for i in range(len(matches)):
-            result = extract_commit(i, matches, log)
-
-            commit_hash = result['commit_hash']
-
-            file_id = save_files_in_batches(conn, file_path)
-            insert_relation(conn, commit_hash, file_id)
-
-    except Exception as e:
-        log_exception(f"Erro ao salvar logs no banco de dados: {e}")
-
-    finally:
-        conn.close()
 
 # Função para a relação entre arquivos e commits
 
@@ -346,16 +322,23 @@ def save_files_commits_relation():
                 file_relations.append(file_relation)
 
     chunks = [file_relations[i:i + 1000]
-              for i in range(0, len(file_relations), 1000)]
+            for i in range(0, len(file_relations), 1000)]
 
     conn = connect_db()
     for chunk in chunks:
         save_files_in_batches(conn, chunk)
 
     for chunk in chunks:
-        relations = [
-            relation for file in chunk for relation in file['commits']]
-        save_files_X_commits_relation_in_batches(conn, chunk)
+        relations = []
+
+        for file in chunk:
+            for commit in file["commits"]:
+                commit_hash = commit
+                file_path = file["path"]
+                relations.append((commit_hash, file_path))
+
+        save_files_X_commits_relation_in_batches(conn, relations)
+    
     conn.close()
 
 # Função principal para percorrer os arquivos do repositório
@@ -363,7 +346,7 @@ def save_files_commits_relation():
 
 def run():
     try:
-        # save_all_commits(repo_path)
+        save_all_commits(repo_path)
         save_files_commits_relation()
     except Exception as e:
         log_exception(f"Erro: {e}")
