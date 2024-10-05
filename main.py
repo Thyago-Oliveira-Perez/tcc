@@ -398,7 +398,7 @@ def save_all_relations(file_paths):
 
 def run():
     try:
-        # save_all_commits(repo_path)
+        save_all_commits(repo_path)
         file_paths = save_all_files()
         save_all_relations(file_paths)
     except Exception as e:
