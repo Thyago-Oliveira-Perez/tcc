@@ -4,6 +4,7 @@ import logging
 from datetime import datetime
 import sqlite3
 import re
+import threading
 
 # Configuração do arquivo de log com a data atual
 log_filename = "logs/" + datetime.now().strftime('%Y-%m-%d') + '.log'
@@ -125,17 +126,25 @@ def save_commits_in_batches(conn, commits):
 # Função para salvar um arquivo no banco
 
 
-def save_files_in_batches(conn, files):
-    log_info(f"Salvando files em lotes de {len(files)}")
-    try:
-        cursor = conn.cursor()
-        cursor.executemany('''
-            INSERT OR IGNORE INTO files (path) VALUES (?)
-        ''', [(file["path"],) for file in files])
-        conn.commit()
-    except Exception as e:
-        log_exception(f"Erro ao inserir arquivos em lote: {e}")
-        conn.rollback()
+def save_files_in_batches(files):
+    conn = connect_db()
+
+    for paths in files:
+
+        paths = [(path,) for path in paths]
+
+        log_info(f"Salvando files em lotes de {len(paths)}")
+        try:
+            cursor = conn.cursor()
+            cursor.executemany('''
+                INSERT OR IGNORE INTO files (path) VALUES (?)
+            ''', paths)
+            conn.commit()
+        except Exception as e:
+            log_exception(f"Erro ao inserir arquivos em lote: {e}")
+            conn.rollback()
+
+    conn.close()
 
 
 # Função para salvar as relações entre commits e arquivos
@@ -300,54 +309,98 @@ def save_all_commits(path):
     except Exception as e:
         log_exception(f"Error: {e}")
 
-# Função para salvar a relação entre arquivo e commits
+# Função para processar logs
 
 
-def save_files_commits_relation():
-    file_relations = []
+def process_logs(files):
+    relations = []
+
+    for paths in files:
+        for path in paths:
+            log = get_git_log(path)
+
+            if log is None:
+                log_info(
+                    f"Este arquivo não contem logs de commit: {path}")
+                continue
+
+            file_relation = get_file_X_commit_relation(path, log)
+            relations.append(file_relation)
+
+    data = []
+
+    for relation in relations:
+        for commit in relation['commits']:
+            data.append((commit, relation['path']))
+
+    conn = connect_db()
+    save_files_X_commits_relation_in_batches(conn, relations)
+    conn.close()
+
+# Função para salvar todos os arquivos
+
+
+def save_all_files():
+    file_paths = []
     # Percorre todos os arquivos do repositório
+    log_info("Processando todos os arquivos do repositório...")
     for root, _, files in os.walk(repo_path):
         for file in files:
             file_path = os.path.join(root, file)
             if '.git' not in file_path and file != 'main.py':  # Ignora a pasta .git e o próprio script
-                log_info(f"Processando arquivo: {file_path}")
-                log = get_git_log(file_path)
+                file_paths.append(file_path)
 
-                if log is None:
-                    log_info(
-                        f"Este arquivo não contem logs de commit: {file_path}")
-                    continue
+    log_info(f"Salvando {len(file_paths)} arquivos...")
 
-                file_relation = get_file_X_commit_relation(file_path, log)
-                file_relations.append(file_relation)
+    chunks = [file_paths[i:i + 1000] for i in range(0, len(file_paths), 1000)]
 
-    chunks = [file_relations[i:i + 1000]
-            for i in range(0, len(file_relations), 1000)]
+    # Criando uma lista de threads
+    threads = []
 
-    conn = connect_db()
-    for chunk in chunks:
-        save_files_in_batches(conn, chunk)
+    chunks_files = [chunks[i:i + 5] for i in range(0, len(chunks), 5)]
 
-    for chunk in chunks:
-        relations = []
+    # Criando e iniciando 5 threads
+    for chunk_file in chunks_files:
+        thread = threading.Thread(
+            target=save_files_in_batches, args=([chunk_file]))
+        threads.append(thread)
+        thread.start()
 
-        for file in chunk:
-            for commit in file["commits"]:
-                commit_hash = commit
-                file_path = file["path"]
-                relations.append((commit_hash, file_path))
+    # Aguardando todas as threads terminarem
+    for thread in threads:
+        thread.join()
 
-        save_files_X_commits_relation_in_batches(conn, relations)
-    
-    conn.close()
+    return file_paths
+
+# Função para salvar todas as relações entre arquivos e commits
+
+
+def save_all_relations(file_paths):
+    chunks = [file_paths[i:i + 1000] for i in range(0, len(file_paths), 1000)]
+
+    # Criando uma lista de threads
+    threads = []
+
+    chunks_files = [chunks[i:i + 5] for i in range(0, len(chunks), 5)]
+
+    # Criando e iniciando 5 threads
+    for chunk_file in chunks_files:
+        thread = threading.Thread(target=process_logs, args=([chunk_file]))
+        threads.append(thread)
+        thread.start()
+
+    # Aguardando todas as threads terminarem
+    for thread in threads:
+        thread.join()
 
 # Função principal para percorrer os arquivos do repositório
 
 
 def run():
     try:
-        save_all_commits(repo_path)
-        save_files_commits_relation()
+        # save_all_commits(repo_path)
+        file_paths = save_all_files()
+        save_all_relations(file_paths)
     except Exception as e:
         log_exception(f"Erro: {e}")
 
