@@ -219,7 +219,7 @@ def extract_commit(i, matches, log):
             'message': message
         }
     except Exception as e:
-        log_exception(f"Erro ao salvar logs no banco de dados: {e}")
+        log_exception(f"Erro ao extrair commits do log: {e}")
 
 
 # Função para a relação entre arquivos e commits
@@ -334,7 +334,7 @@ def process_logs(files):
             data.append((commit, relation['path']))
 
     conn = connect_db()
-    save_files_X_commits_relation_in_batches(conn, relations)
+    save_files_X_commits_relation_in_batches(conn, data)
     conn.close()
 
 # Função para salvar todos os arquivos
@@ -398,7 +398,7 @@ def save_all_relations(file_paths):
 
 def run():
     try:
-        # save_all_commits(repo_path)
+        save_all_commits(repo_path)
         file_paths = save_all_files()
         save_all_relations(file_paths)
     except Exception as e:
