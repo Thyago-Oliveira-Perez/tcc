@@ -115,32 +115,69 @@ def get_data(conn):
         log_error(f"Erro ao executar a query: {e}")
         return pd.DataFrame()
 
-# Gera um gráfico de barras a partir dos dados.
+# Função para calcular o número de commits de erro entre refatorações
 
 
-def generate_bar_graph_per_file(df):
-    sns.set_theme(style="whitegrid")
-    unique_files = df['path'].unique()
+def calculate_errors_between_refactors(df):
+    results = {}
 
-    for file_path in unique_files:
-        # Filtrar o DataFrame por arquivo
-        df_file = df[df['path'] == file_path]
+    for path, group in df.groupby('path'):
+        commits_refactor = group[group['tipo_commit'] == 'refatoracao']
+        commits_error = group[group['tipo_commit'] == 'erro']
 
-        # Criar gráfico de barras para cada arquivo, ordenando por data
-        plt.figure(figsize=(10, 7))
-        sns.countplot(data=df_file, x='date',
-                      hue='tipo_commit', palette='viridis')
+        if commits_refactor.empty:
+            continue
 
-        # Adicionar rótulos e título
-        plt.title(f'Commits por Tipo no Arquivo: {file_path}')
-        plt.xlabel('Data')
-        plt.ylabel('Número de Commits')
+        error_counts = []
+        previous_refactor_date = None
 
-        # Rotacionar rótulos do eixo X para melhor visualização
-        plt.xticks(rotation=45)
+        for _, refactor in commits_refactor.iterrows():
+            refactor_date = refactor['date']
 
-        # Ajustar layout e exibir o gráfico
-        plt.tight_layout()
+            if previous_refactor_date is not None:
+                errors_in_interval = commits_error[
+                    (commits_error['date'] > previous_refactor_date) &
+                    (commits_error['date'] <= refactor_date)
+                ]
+                error_counts.append(len(errors_in_interval))
+
+            previous_refactor_date = refactor_date
+
+        results[path] = error_counts
+
+    return results
+
+# Função para gerar o gráfico
+
+
+def plot_error_refactor_graph(errors_between_refactors):
+    for path, error_counts in errors_between_refactors.items():
+        # Vamos plotar as refatorações (pontuação) e os erros entre elas (barras)
+        fig, ax = plt.subplots()
+
+        # Posição dos commits de refatoração e exibição dos erros como barra
+        # +1 para incluir o commit final
+        refactor_commits = range(len(error_counts) + 1)
+        # Adiciona zero no final para o último commit
+        bar_heights = error_counts + [0]
+
+        # Gráfico de barras (para erros)
+        ax.bar(refactor_commits[:-1], bar_heights[:-1],
+               color='red', label='Total de Erros')
+
+        # Adicionar pontos para representar os commits de refatoração
+        ax.scatter(refactor_commits, bar_heights, color='blue',
+                   label='Commits de Refatoração')
+
+        # Ajustar labels e título
+        ax.set_xlabel('Intervalo de Refatoração')
+        ax.set_ylabel('Total de Erros')
+        ax.set_title(f'Commits de Erros entre Refatorações para {path}')
+        ax.legend()
+
+        # Exibir o gráfico
+        # Remover labels dos commits
+        plt.xticks(refactor_commits, labels=[''] * len(refactor_commits))
         plt.show()
 
 
@@ -163,8 +200,9 @@ def main():
     # Exibir o DataFrame com os resultados
     log_info(f"Dados retornados:\n{df}")
 
-    # Gerar gráfico para cada arquivo
-    generate_bar_graph_per_file(df)
+    errors_between_refactors = calculate_errors_between_refactors(df)
+
+    plot_error_refactor_graph(errors_between_refactors)
 
 
 if __name__ == "__main__":
