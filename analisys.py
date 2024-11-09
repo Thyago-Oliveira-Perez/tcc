@@ -4,6 +4,7 @@ import logging
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from datetime import datetime
 
 repo_path = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), 'kubernetes')
@@ -99,6 +100,7 @@ def get_data(conn):
     try:
         df = pd.read_sql_query(query, conn)
         df['date'] = pd.to_datetime(df['date'])
+
         return df
     except pd.io.sql.DatabaseError as e:
         log_error(f"Erro ao executar a query: {e}")
@@ -113,23 +115,13 @@ def plot_density_graph(df):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    # Converter a coluna de datas para o tipo datetime
-    df['date'] = pd.to_datetime(df['date'], errors='coerce', utc=True)
-
-    # Verificar se há valores NaT na coluna 'date' e tratá-los
-    if df['date'].isna().any():
-        print(
-            f"Aviso: {df['date'].isna().sum()} datas inválidas encontradas e serão removidas.")
-        # Remove linhas com valores NaT em 'date'
-        df = df.dropna(subset=['date'])
-
     # Criar gráfico de densidade
     for path, group in df.groupby('path'):
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize=(10, 5))
 
         # Plotar densidade usando kdeplot e ajustando a largura da banda
         sns.kdeplot(data=group, x='date', hue='tipo_commit',
-                    bw_adjust=1.5, fill=True, alpha=0.2)
+                    cut=0, fill=True, alpha=0.2)
 
         index = path.index('kubernetes')
         path = path[index:]
