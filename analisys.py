@@ -120,8 +120,8 @@ def plot_density_graph(df):
         plt.figure(figsize=(10, 5))
 
         # Plotar densidade usando kdeplot e ajustando a largura da banda
-        sns.kdeplot(data=group, x='date', hue='tipo_commit',
-                    cut=0, fill=True, alpha=0.2)
+        sns.kdeplot(data=group, x='date', hue='tipo_commit', hue_order=['erro', 'refatoracao'],
+                    cut=0, fill=True, alpha=0.2, palette={'refatoracao': '#588157', 'erro': '#ae2012'})
 
         index = path.index('kubernetes')
         path = path[index:]
